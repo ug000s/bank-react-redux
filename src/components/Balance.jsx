@@ -1,4 +1,9 @@
-const Balance = ({balance}) => {
+import { useSyncExternalStore } from "react";
+import { store } from "../configureStore/store.js";
+
+const Balance = () => {
+    const {balance} = useSyncExternalStore(store.subscribe, store.getState)
+    
     return (
         <div>
             <h1>Bank</h1>
