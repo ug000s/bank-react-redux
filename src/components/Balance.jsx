@@ -4,9 +4,9 @@ const Balance = () => {
     const balance = useSelector(state => state.balance)
 
     return (
-        <div>
-            <h1>Bank</h1>
-            <h2>Balance: {balance}</h2>
+        <div className="text-center">
+            <h1 className={"text-8xl font-bold text-[gold]"}>Iron bank of Braavos</h1>
+            <h2 className="text-7xl text-[firebrick]">Balance: {balance}</h2>
         </div>
     )
 }

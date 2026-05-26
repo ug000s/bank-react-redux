@@ -7,12 +7,14 @@ const Operation = () => {
     const dispatch = useDispatch()
 
     return (
-        <div>
-            <button onClick={() => dispatch(withdraw(sum))}>Withdraw</button>
-            {/* the same input for both withdraw and deposit */}
-            {/* <input type="number" min="0" /> */}
-            <input type={"number"} min={0} value={sum} onChange={e => setSum(+e.target.value)} />    
-            <button onClick={() => dispatch(deposit(sum))}>Deposit</button>
+        <div className="flex justify-center">
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold px-4 py-2 rounded-lg" 
+            onClick={() => dispatch(withdraw(sum))}>
+                Withdraw</button>
+            <input className="text-center mx-2 border rounded-lg font-bold text-white" type={"number"} min={0} value={sum} onChange={e => setSum(+e.target.value)} />    
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold px-4 py-2 rounded-lg" 
+            onClick={() => dispatch(deposit(sum))}>
+                Deposit</button>
         </div>
     )
 }
