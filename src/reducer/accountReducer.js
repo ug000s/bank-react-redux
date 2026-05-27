@@ -1,8 +1,10 @@
-import { DEPOSIT, WITHDRAW } from "../actions/accountAction";
+import { DEPOSIT, WITHDRAW } from "../actions/accountActions";
+import { PUT_QUOTE } from "../actions/quoteActions";
 
 /*
 type State = {
-    balance: number
+    balance: number,
+    quote: string
 }
     accountReducer
     - state: current balance
@@ -21,6 +23,11 @@ export const accountReducer = (state, action) => {
             return { 
                 ...state, 
                 balance: state.balance - action.payload >= 0 ? state.balance - action.payload : state.balance 
+            }
+        case PUT_QUOTE:
+            return {
+                ...state,
+                quote: action.payload
             }
         default:
             // return current state
