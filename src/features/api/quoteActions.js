@@ -1,14 +1,10 @@
-import { putQuote } from '../quote/quoteSlice.js';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 
-export const fetchQuote = () => {
-    return dispatch => {
-        dispatch(putQuote('Pending...'))
-        fetch('https://api.gameofthronesquotes.xyz/v1/random')
-            .then(res=>res.json())
-            .then(data => dispatch(putQuote(data.sentence)))
-            .catch(e=>{
-                console.error('Failed to fetch quote',e);
-                dispatch(putQuote('Failed to fetch quote. Please try again later.'))
-            })    
+export const fetchQuote = createAsyncThunk(
+    'quote/fetchPending',
+    async () => {
+        const res = await fetch('https://api.gameofthronesquotes.xyz/v1/random')
+        const data = await res.json()
+        return data.sentence
     }
-}
+)
